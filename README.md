@@ -8,7 +8,11 @@
 
 - Project track
 
+- all the packages necessary for the code to work
+
 - All about the project step by step explanation
+
+- How to use
 
 
 ## Project Track 
@@ -30,7 +34,32 @@ Ricordati che anche MongoDB può subire attacchi di tipo NoSQL Injection, qui de
 4. Nel promt dei comandi Node digitare npm install per i node_modules.
 
 
-   
+## Packages
+npm chai chai-as-promised cors crypto-js dotenv express jsonwebtoken mocha mongoose nock nodemon nyc request sinon sinon-chai
+
+## all about the project 
+file principale index.js | cartella routes con i metodi di:per user/order e product : creazione(POST), modifica(PUT) ,cancellazione (DELETE),visualizzazione(GET ONE , GET ALL ) + un aggiunta ad user (GET USER STATS)
+In auth REGISTER E LOGIN USER (POST) autorizzazione con token da verificare
+
+Come plus aprire terminale da Mocha---sample-test-cases e digitare npm run coverage per un semplice test di prova
+
+## how to use
+
+https://cloud.mongodb.com/ aprire mongodb e fare un proprio Cluster ( mongodb+srv://<username>:<password>@cluster0.9qyyy4t.mongodb.net/?retryWrites=true&w=majority)
+e dopodichè nel proprio file .env inserire l'ulr modificando nome e password  MONGO_URL = URL MODIFICATO  
+siccome ci troviamo,inseriamo anche le altre variabili che si servirano per dopo ( i valori aggiungeteli in base al vostro utente creato )
+PASS_SEC = 
+JWT_SEC = 
+
+*mi raccomando prima di iniziare da node digitare npm start ( fa partire il nostro nodemon con live )
+
+Passiamo a POSTMAN : Crea una new collection , dove all'interno add una request... iniziamo da una POST
+localhost:5000/api/auth/register il nostro local host è 5000 voi potete mettere quello che preferite.
+Nel body inseriamo un username un email e una password e mandiamo SEND.
+localhost:5000/api/auth/login effettuiamo il login con username e password , ma in questo caso nell'Headers dovremo aggiungere la key token e il value Bearer con il token generato dalla registrazione
+Dopodichè potremo fare tutto quello che preferiamo ,fare stesso procedimento per gli order e product , fare la chiamata GET per visualizzarli.
+Tutte le nostre modifiche saranno visibili sul nostro cluster mongoDB dove potremo filtrare gli utenti/ordini ecc anche solo grazie a un valore 
+
 
 
 
