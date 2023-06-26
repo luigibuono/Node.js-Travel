@@ -58,19 +58,6 @@ What is MongoDB :
 
 MongoDB is a document database NoSQL that gives you the scalability and flexibility you want along with the indexes and queries you need
 
-## FAQ
-
-#### Question 1
-
-What is POSTMAN :
-Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
-
-#### Question 2
-
-What is MongoDB :
-
-MongoDB is a document database NoSQL that gives you the scalability and flexibility you want along with the indexes and queries you need
-
 
 
 
