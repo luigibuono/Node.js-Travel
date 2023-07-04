@@ -7,6 +7,33 @@ const {
 
 const router = require("express").Router();
 
+
+// filter orders by queries
+
+router.get("/", async (req, res) => {
+ const {  startdate, enddate,  } = req.query;
+  let filteredOrders = await order.find();
+
+
+  if (startdate) {
+    const d = new Date(startdate);
+    filteredOrders = filteredOrders.filter(
+      (Order) => Order.startdate >= d
+    );
+  }
+  if (enddate) {
+    const d = new Date(enddate);
+    filteredOrders = filteredOrders.filter(
+      (Order) => Order.enddate <= d
+    );
+  }
+  
+
+  res.status(200).json(filteredOrders);
+
+});
+
+
 //CREATE
 
 router.post("/", verifyToken, async (req, res) => {
