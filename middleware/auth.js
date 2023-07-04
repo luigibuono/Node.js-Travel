@@ -1,25 +1,42 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
-
 const jwt = require("jsonwebtoken");
+const bcrypt = require ("bcrypt");
+
+
 
 //REGISTER
 router.post("/register", async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
-   .toString(),
+    password: CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.PASS_SEC
+    ).toString(),
   });
-  
-  const hash = await bcrypt.hash(password,13)
 
-  user.push({
-    username,
-    password:hash
-  })
- 
+
+
+  /* prova bcrypt 
+  const saltRounds = 10;
+  const myPlaintextPassword = 'process.env.PASS_SEC';
+  const someOtherPlaintextPassword = 'not_bacon';
+
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+    });
+});
+bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+  // result == true
+});
+bcrypt.compare(someOtherPlaintextPassword, hash, function(err, result) {
+  // result == false
+});
+
+*/
   try {
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -27,6 +44,8 @@ router.post("/register", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 //LOGIN
 
@@ -40,10 +59,13 @@ router.post('/login', async (req, res) => {
 
         !user && res.status(401).json("Wrong User Name");
 
-        
+        const hashedPassword = CryptoJS.AES.decrypt(
+            user.password,
+            process.env.PASS_SEC
+        );
 
 
-     
+        const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
         const inputPassword = req.body.password;
         
