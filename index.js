@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 
 const dotenv = require("dotenv");
-const userRoute = require ("./routes/user")
-const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
-const orderRoute = require("./routes/order");
+const userRoute = require ("./routes controllers/user");
+const authRoute = require("./middleware/auth");
+const productRoute = require("./routes controllers/product");
+const orderRoute = require("./routes controllers/order");
 
 //middleware
 app.use(express.json());
