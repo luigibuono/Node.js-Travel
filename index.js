@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 
 const dotenv = require("dotenv");
-const userRoute = require ("./routes controllers/user");
+const userRoute = require ("./controllers/user");
 const authRoute = require("./middleware/auth");
-const productRoute = require("./routes controllers/product");
-const orderRoute = require("./routes controllers/order");
+const productRoute = require("./controllers/product");
+const orderRoute = require("./controllers/order");
 
 //middleware
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, async () => {
   console.log(`App is listening on port ${port}`);
