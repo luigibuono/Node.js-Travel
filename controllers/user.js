@@ -7,17 +7,6 @@ const {
 
 const router = require("express").Router();
 
-const userById = async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userId);
-    if (!user) throw "not found";
-    res.status(200).json(user);
-  } catch (err) {
-    res.status(404).json({ message: err });
-  }
-  userById
-};
-
 
 
 //UPDATE
