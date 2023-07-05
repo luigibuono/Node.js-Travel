@@ -8,29 +8,15 @@ const {
 const router = require("express").Router();
 
 
-// filter orders by queries
+// filter orders by Date
 
-router.get("/", async (req, res) => {
- const {  startdate, enddate,  } = req.query;
-  let filteredOrders = await order.find();
-
-
-  if (startdate) {
-    const d = new Date(startdate);
-    filteredOrders = filteredOrders.filter(
-      (Order) => Order.startdate >= d
-    );
+router.get("/find/:OrderByDate", verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    const orders = await Order.find({ OrderByDate: req.params.OrderByDate });
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  if (enddate) {
-    const d = new Date(enddate);
-    filteredOrders = filteredOrders.filter(
-      (Order) => Order.enddate <= d
-    );
-  }
-  
-
-  res.status(200).json(filteredOrders);
-
 });
 
 
