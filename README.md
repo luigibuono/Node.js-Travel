@@ -38,8 +38,9 @@ Ricordati che anche MongoDB può subire attacchi di tipo NoSQL Injection, qui de
 npm chai chai-as-promised cors crypto-js dotenv express jsonwebtoken mocha mongoose nock nodemon nyc request sinon sinon-chai
 
 ## all about the project 
-file principale index.js | cartella routes con i metodi di:per user/order e product : creazione(POST), modifica(PUT) ,cancellazione (DELETE),visualizzazione(GET ONE , GET ALL ) + un aggiunta ad user (GET USER STATS)
-In auth REGISTER E LOGIN USER (POST) autorizzazione con token da verificare
+file principale index.js | cartella controllers con i metodi di:per user/order e product : creazione(POST), modifica(PUT) ,cancellazione (DELETE),visualizzazione(GET ONE , GET ALL ) + un aggiunta ad user (GET USER STATS)
+In middleware auth REGISTER E LOGIN USER (POST) autorizzazione con token da verificare
+file routes con tutte le route
 
 Come plus aprire terminale da Mocha---sample-test-cases e digitare npm run coverage per un semplice test di prova
 
