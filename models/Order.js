@@ -14,6 +14,8 @@ const OrderSchema = new mongoose.Schema(
         },
       },
     ],
+    OrderByIDate: {type: String, required: true },
+    Date: { type: Number, required: true },
     amount: { type: Number, required: true },
     address: { type: Object, required: true },
     status: { type: String, default: "pending" },
