@@ -1,0 +1,30 @@
+{
+  "name": "orizonapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "NODE_ENV=test jest --watchAll --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "Luigi Buono",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "jest": "^29.2.2",
+    "mongodb-memory-server": "^8.9.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.7.0"
+  }
+}
