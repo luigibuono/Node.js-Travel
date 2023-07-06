@@ -32,36 +32,65 @@ Ricordati che anche MongoDB può subire attacchi di tipo NoSQL Injection, qui de
 2. Andare su clone repository e selezionare URL
 3. inserire l'url https://github.com/luigibuono/Node.js-Travel
 4. Nel promt dei comandi Node digitare npm install per i node_modules.
+5. digitare npm start per mandare l'applicazione
+6. postarsi su un ambiente di sviluppo API a piacere (io consiglio POSTMAN)
 
 
 ## Packages
-npm chai chai-as-promised cors crypto-js dotenv express jsonwebtoken mocha mongoose nock nodemon nyc request sinon sinon-chai
-
+ "devDependencies": {
+    "jest": "^29.2.2",
+    "mongodb-memory-server": "^8.9.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.7.0"
+  }
 ## all about the project 
-file principale index.js | cartella controllers con i metodi di:per user/order e product : creazione(POST), modifica(PUT) ,cancellazione (DELETE),visualizzazione(GET ONE , GET ALL ) + un aggiunta ad user (GET USER STATS)
-In middleware auth REGISTER E LOGIN USER (POST) autorizzazione con token da verificare
-file routes con tutte le route
+File principale  : app.js
+File database    : database.js
+File connessione server : server.js
+controllers con i metodi : orders,products,user
+models : valori da assegnare imposti nella traccia
+routes : Routes 
 
-Come plus aprire terminale da Mocha---sample-test-cases e digitare npm run coverage per un semplice test di prova
 
 ## how to use
-
+Generare url da mongo :
 https://cloud.mongodb.com/ aprire mongodb e fare un proprio Cluster ( mongodb+srv://<username>:<password>@cluster0.9qyyy4t.mongodb.net/?retryWrites=true&w=majority)
-e dopodichè nel proprio file .env inserire l'ulr modificando nome e password  MONGO_URL = URL MODIFICATO  
-siccome ci troviamo,inseriamo anche le altre variabili che si servirano per dopo ( i valori aggiungeteli in base al vostro utente creato )
-PASS_SEC = 
-JWT_SEC = 
+e dopodichè nel proprio file .env inserire l'ulr   DB_URI = URL MODIFICATO  
+
 
 *mi raccomando prima di iniziare da node digitare npm start ( fa partire il nostro nodemon con live )
 
 Passiamo a POSTMAN : Crea una new collection , dove all'interno add una request... iniziamo da una POST
-localhost:5000/api/auth/register il nostro local host è 5000 voi potete mettere quello che preferite.
-Nel body inseriamo un username un email e una password e mandiamo SEND.
-localhost:5000/api/auth/login effettuiamo il login con username e password , ma in questo caso nell'Headers dovremo aggiungere la key token e il value Bearer con il token generato dalla registrazione
-Dopodichè potremo fare tutto quello che preferiamo ,fare stesso procedimento per gli order e product , fare la chiamata GET per visualizzarli.
-Tutte le nostre modifiche saranno visibili sul nostro cluster mongoDB dove potremo filtrare gli utenti/ordini ecc anche solo grazie a un valore 
+
+RICHIESTA POST : localhost:3000/users = creazione utente
+RICHIESTA POST: localhost:3000/products = creazione prodotti
+RICHIESTA POST:localhost:3000/orders= creazione ordini 
 
 
+
+RICHIESTA GET : localhost:3000/orders/:orderId = filtrare ordini in base l'id
+
+
+
+CAMBIANDO END-POINT POSSIAMO FARE ALTRE RICHIESTE COME PATCH E DELETE 
+
+
+ESEMPIO PER UN ORDINE :
+{
+  "product": "INSERIRE ID",
+  "user": "iINSERIRE USER_ID ",
+  "createdOn": "DEFAULT"
+}
 
 
 ## API Reference
