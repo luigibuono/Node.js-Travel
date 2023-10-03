@@ -1,8 +1,7 @@
-#4
+<h1><strong>#4 S2J</strong></h1>
+
+
 # Node js project
-
-#MODIFICHE APPORTATE POST FEEDBACK NON SEGNALATE IN PDF
-
 
 ## Introduction
 
